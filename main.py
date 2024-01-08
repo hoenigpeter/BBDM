@@ -34,6 +34,8 @@ def parse_args_and_config():
 
     args = parser.parse_args()
 
+    print(args.config)
+    
     with open(args.config, 'r') as f:
         dict_config = yaml.load(f, Loader=yaml.FullLoader)
 
