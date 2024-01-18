@@ -13,10 +13,10 @@ testing:
   sample_num: 1
 
 data:
-  dataset_name: 'lmo_xyz'
+  dataset_name: 'lmo_xyz_5'
   dataset_type: 'custom_aligned'
   dataset_config:
-    dataset_path: 'datasets/lmo_xyz'
+    dataset_path: 'datasets/lmo_xyz_5'
     image_size: 128
     channels: 3
     to_normal: True
