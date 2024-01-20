@@ -387,7 +387,7 @@ class BaseRunner(ABC):
                 start_time = time.time()
                 for train_batch in pbar:
 
-                    
+                    print(train_batch.shape)
 
                     self.global_step += 1
                     self.net.train()
