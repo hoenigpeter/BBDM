@@ -386,9 +386,6 @@ class BaseRunner(ABC):
                 self.global_epoch = epoch
                 start_time = time.time()
                 for train_batch in pbar:
-
-                    
-
                     self.global_step += 1
                     self.net.train()
 

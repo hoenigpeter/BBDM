@@ -13,6 +13,8 @@ class Register:
             raise Exception(f"Value of a Registry must be a callable")
         if key is None:
             key = value.__name__
+            
+        print(value.__name__)
         if key in self.dict:
             logging.warning("Key %s already in registry %s." % (key, self.__name__))
         self.dict[key] = value

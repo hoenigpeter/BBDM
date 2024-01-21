@@ -21,7 +21,7 @@ from runners.base.EMA import EMA
 from runners.utils import make_save_dirs, make_dir, get_dataset, remove_file
 
 
-class BaseRunner(ABC):
+class BaseRunner_Augmented(ABC):
     def __init__(self, config):
         self.net = None  # Neural Network
         self.optimizer = None  # optimizer
@@ -386,9 +386,6 @@ class BaseRunner(ABC):
                 self.global_epoch = epoch
                 start_time = time.time()
                 for train_batch in pbar:
-
-                    print(train_batch.shape)
-
                     self.global_step += 1
                     self.net.train()
 

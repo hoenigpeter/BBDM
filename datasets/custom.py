@@ -5,7 +5,7 @@ from torch.utils.data import Dataset
 import torchvision.transforms as transforms
 
 from Register import Registers
-from datasets.base import ImagePathDataset
+from datasets.base import ImagePathDataset, ImagePathDataset_Augmented
 from datasets.utils import get_image_paths_from_dir
 from PIL import Image
 import cv2
@@ -41,7 +41,7 @@ class CustomAlignedDataset(Dataset):
         self.to_normal = dataset_config.to_normal
 
         self.imgs_ori = ImagePathDataset(image_paths_ori, self.image_size, flip=self.flip, to_normal=self.to_normal)
-        self.imgs_cond = ImagePathDataset(image_paths_cond, self.image_size, flip=self.flip, to_normal=self.to_normal)
+        self.imgs_cond = ImagePathDataset_Augmented(image_paths_cond, self.image_size, flip=self.flip, to_normal=self.to_normal)
 
     def __len__(self):
         return len(self.imgs_ori)

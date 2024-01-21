@@ -4,7 +4,7 @@ import omegaconf.dictconfig
 
 from Register import Registers
 from runners.DiffusionBasedModelRunners.BBDMRunner import BBDMRunner
-
+from runners.DiffusionBasedModelRunners.BBDMRunner_Augmented import BBDMRunner_Augmented
 
 def dict2namespace(config):
     namespace = argparse.Namespace()
