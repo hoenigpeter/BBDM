@@ -1,0 +1,8 @@
+python3 main.py --config configs/Template-LBBDM-f4_lmo_1.yaml --sample_to_eval --gpu_ids 0 --resume_model /hdd/BBDM/lmo/no_augmentation/lmo_xyz_1/LBBDM-f4/checkpoint/last_model.pth
+python3 main.py --config configs/Template-LBBDM-f4_lmo_5.yaml --sample_to_eval --gpu_ids 0 --resume_model /hdd/BBDM/lmo/no_augmentation/lmo_xyz_5/LBBDM-f4/checkpoint/last_model.pth
+python3 main.py --config configs/Template-LBBDM-f4_lmo_6.yaml --sample_to_eval --gpu_ids 0 --resume_model /hdd/BBDM/lmo/no_augmentation/lmo_xyz_6/LBBDM-f4/checkpoint/last_model.pth
+python3 main.py --config configs/Template-LBBDM-f4_lmo_8.yaml --sample_to_eval --gpu_ids 0 --resume_model /hdd/BBDM/lmo/no_augmentation/lmo_xyz_8/LBBDM-f4/checkpoint/last_model.pth
+python3 main.py --config configs/Template-LBBDM-f4_lmo_9.yaml --sample_to_eval --gpu_ids 0 --resume_model /hdd/BBDM/lmo/no_augmentation/lmo_xyz_9/LBBDM-f4/checkpoint/last_model.pth
+python3 main.py --config configs/Template-LBBDM-f4_lmo_10.yaml --sample_to_eval --gpu_ids 0 --resume_model /hdd/BBDM/lmo/no_augmentation/lmo_xyz_10/LBBDM-f4/checkpoint/last_model.pth
+python3 main.py --config configs/Template-LBBDM-f4_lmo_11.yaml --sample_to_eval --gpu_ids 0 --resume_model /hdd/BBDM/lmo/no_augmentation/lmo_xyz_11/LBBDM-f4/checkpoint/last_model.pth
+python3 main.py --config configs/Template-LBBDM-f4_lmo_12.yaml --sample_to_eval --gpu_ids 0 --resume_model /hdd/BBDM/lmo/no_augmentation/lmo_xyz_12/LBBDM-f4/checkpoint/last_model.pth

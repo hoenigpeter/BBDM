@@ -27,7 +27,7 @@ class ImagePathDataset(Dataset):
             p = 1.0
 
         transform = transforms.Compose([
-            transforms.RandomHorizontalFlip(p=p),
+            #transforms.RandomHorizontalFlip(p=p),
             transforms.Resize(self.image_size),
             transforms.ToTensor()
         ])
@@ -107,7 +107,7 @@ class ImagePathDataset_Augmented(Dataset):
             p = 1.0
 
         transform = transforms.Compose([
-            transforms.RandomHorizontalFlip(p=p),
+            #transforms.RandomHorizontalFlip(p=p),
             transforms.Resize(self.image_size),
             transforms.ToTensor()
         ])

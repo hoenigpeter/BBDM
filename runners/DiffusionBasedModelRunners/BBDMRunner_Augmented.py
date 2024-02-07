@@ -12,7 +12,7 @@ from runners.DiffusionBasedModelRunners.DiffusionBaseRunner_Augmented import Dif
 from runners.utils import weights_init, get_optimizer, get_dataset, make_dir, get_image_grid, save_single_image
 from tqdm.autonotebook import tqdm
 from torchsummary import summary
-
+import time
 
 @Registers.runners.register_with_name('BBDMRunner_Augmented')
 class BBDMRunner_Augmented(DiffusionBaseRunner_Augmented):
@@ -231,6 +231,7 @@ class BBDMRunner_Augmented(DiffusionBaseRunner_Augmented):
         to_normal = self.config.data.dataset_config.to_normal
         sample_num = self.config.testing.sample_num
         for test_batch in pbar:
+            t0 = time.time()
             (x, x_name), (x_cond, x_cond_name) = test_batch
             x = x.to(self.config.training.device[0])
             x_cond = x_cond.to(self.config.training.device[0])
@@ -250,3 +251,6 @@ class BBDMRunner_Augmented(DiffusionBaseRunner_Augmented):
                         save_single_image(result, result_path_i, f'output_{j}.png', to_normal=to_normal)
                     else:
                         save_single_image(result, result_path, f'{x_name[i]}.png', to_normal=to_normal)
+            t1 = time.time()
+            print("time per image: \t" + "%.3f" % (t1 - t0) + " sec" )
+

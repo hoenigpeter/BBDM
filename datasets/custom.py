@@ -118,7 +118,7 @@ class CustomColorizationRGBDataset(Dataset):
             p = True
 
         transform = transforms.Compose([
-            transforms.RandomHorizontalFlip(p=p),
+            #transforms.RandomHorizontalFlip(p=p),
             transforms.Resize(self.image_size),
             transforms.ToTensor()
         ])
@@ -171,7 +171,7 @@ class CustomInpaintingDataset(Dataset):
             p = 1.
 
         transform = transforms.Compose([
-            transforms.RandomHorizontalFlip(p=p),
+            #transforms.RandomHorizontalFlip(p=p),
             transforms.Resize(self.image_size),
             transforms.ToTensor()
         ])
