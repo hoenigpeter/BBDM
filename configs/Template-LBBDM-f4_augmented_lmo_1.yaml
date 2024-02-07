@@ -1,7 +1,7 @@
 # Latent Brownian Bridge Diffusion Model Template(Latent Space)
 runner: "BBDMRunner_Augmented"
 training:
-  n_epochs: 50
+  n_epochs: 100
   n_steps: 200000
   save_interval: 2
   sample_interval: 2

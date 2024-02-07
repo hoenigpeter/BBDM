@@ -41,8 +41,11 @@ class CustomAlignedDataset(Dataset):
         self.to_normal = dataset_config.to_normal
 
         self.imgs_ori = ImagePathDataset(image_paths_ori, self.image_size, flip=self.flip, to_normal=self.to_normal)
-        self.imgs_cond = ImagePathDataset_Augmented(image_paths_cond, self.image_size, flip=self.flip, to_normal=self.to_normal)
-
+        if stage == 'train':
+            self.imgs_cond = ImagePathDataset_Augmented(image_paths_cond, self.image_size, flip=self.flip, to_normal=self.to_normal)
+        else:
+            self.imgs_cond = ImagePathDataset(image_paths_cond, self.image_size, flip=self.flip, to_normal=self.to_normal)
+            
     def __len__(self):
         return len(self.imgs_ori)
 
@@ -118,7 +121,7 @@ class CustomColorizationRGBDataset(Dataset):
             p = True
 
         transform = transforms.Compose([
-            #transforms.RandomHorizontalFlip(p=p),
+            transforms.RandomHorizontalFlip(p=p),
             transforms.Resize(self.image_size),
             transforms.ToTensor()
         ])
@@ -171,7 +174,7 @@ class CustomInpaintingDataset(Dataset):
             p = 1.
 
         transform = transforms.Compose([
-            #transforms.RandomHorizontalFlip(p=p),
+            transforms.RandomHorizontalFlip(p=p),
             transforms.Resize(self.image_size),
             transforms.ToTensor()
         ])
