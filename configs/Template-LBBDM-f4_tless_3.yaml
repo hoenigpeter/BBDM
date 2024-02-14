@@ -16,7 +16,7 @@ data:
   dataset_name: 'tless_xyz_3'
   dataset_type: 'custom_aligned'
   dataset_config:
-    dataset_path: 'datasets/tless/03'
+    dataset_path: 'datasets/tless/3'
     image_size: 128
     channels: 3
     to_normal: True

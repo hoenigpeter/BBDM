@@ -13,10 +13,10 @@ testing:
   sample_num: 1
 
 data:
-  dataset_name: 'tless_xyz_4'
+  dataset_name: 'tless_xyz_11'
   dataset_type: 'custom_aligned'
   dataset_config:
-    dataset_path: 'datasets/tless/4'
+    dataset_path: 'datasets/tless/11'
     image_size: 128
     channels: 3
     to_normal: True
