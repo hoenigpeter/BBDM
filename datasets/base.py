@@ -76,17 +76,17 @@ class ImagePathDataset_Augmented(Dataset):
             # Sometimes(0.5, Affine(scale=(1.0, 1.2))),
             iaa.Sometimes(0.5, iaa.CoarseDropout( p=0.2, size_percent=0.05) ),
             iaa.Sometimes(0.4, iaa.GaussianBlur((0., 3.))),
-            iaa.Sometimes(0.3, iaa.pillike.EnhanceSharpness(factor=(0., 50.))),
-            iaa.Sometimes(0.3, iaa.pillike.EnhanceContrast(factor=(0.2, 50.))),
-            iaa.Sometimes(0.5, iaa.pillike.EnhanceBrightness(factor=(0.1, 6.))),
-            iaa.Sometimes(0.3, iaa.pillike.EnhanceColor(factor=(0., 20.))),
+            # iaa.Sometimes(0.3, iaa.pillike.EnhanceSharpness(factor=(0., 50.))),
+            # iaa.Sometimes(0.3, iaa.pillike.EnhanceContrast(factor=(0.2, 50.))),
+            # iaa.Sometimes(0.5, iaa.pillike.EnhanceBrightness(factor=(0.1, 6.))),
+            # iaa.Sometimes(0.3, iaa.pillike.EnhanceColor(factor=(0., 20.))),
             iaa.Sometimes(0.5, iaa.Add((-25, 25), per_channel=0.3)),
             iaa.Sometimes(0.3, iaa.Invert(0.2, per_channel=True)),
             iaa.Sometimes(0.5, iaa.Multiply((0.6, 1.4), per_channel=0.5)),
             iaa.Sometimes(0.5, iaa.Multiply((0.6, 1.4))),
-            iaa.Sometimes(0.1, iaa.AdditiveGaussianNoise(scale=10, per_channel=True)),
+            # iaa.Sometimes(0.1, iaa.AdditiveGaussianNoise(scale=10, per_channel=True)),
             iaa.Sometimes(0.5, iaa.contrast.LinearContrast((0.5, 2.2), per_channel=0.3)),
-            iaa.Sometimes(0.5, iaa.Grayscale(alpha=(0.0, 1.0)))
+            # iaa.Sometimes(0.5, iaa.Grayscale(alpha=(0.0, 1.0)))
         ], random_order=True)
 
 

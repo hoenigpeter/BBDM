@@ -1,7 +1,7 @@
 # Latent Brownian Bridge Diffusion Model Template(Latent Space)
 runner: "BBDMRunner_Augmented"
 training:
-  n_epochs: 40
+  n_epochs: 100
   n_steps: 200000
   save_interval: 2
   sample_interval: 2
@@ -13,14 +13,14 @@ testing:
   sample_num: 1
 
 data:
-  dataset_name: 'lmo_xyz_augmented_5'
+  dataset_name: 'lmo_combined_5'
   dataset_type: 'custom_aligned'
   dataset_config:
-    dataset_path: 'datasets/lmo_xyz_5'
-    image_size: 256
+    dataset_path: 'datasets/lmo/lmo_xyz_5'
+    image_size: 128
     channels: 3
     to_normal: True
-    flip: True
+    flip: False
   train:
     batch_size: 8
     shuffle: True
@@ -32,7 +32,7 @@ data:
     # shuffle: False
 
 model:
-  model_name: "LBBDM-f16" # part of result path
+  model_name: "LBBDM-f4" # part of result path
   model_type: "LBBDM" # specify a module
   latent_before_quant_conv: False
   normalize_latent: False
@@ -47,31 +47,28 @@ model:
     start_ema_step: 30000
 
   CondStageParams:
-    n_stages: 4
+    n_stages: 2
     in_channels: 3
-    out_channels: 8
+    out_channels: 3
 
   VQGAN:
     params:
-      ckpt_path: 'results/VQGAN/VQGAN-f16.ckpt'
-      embed_dim: 8
-      n_embed: 16384
+      ckpt_path: 'results/VQGAN/CelebAMaskHQ-f4.ckpt'
+      embed_dim: 3
+      n_embed: 8192
       ddconfig:
         double_z: false
-        z_channels: 8
-        resolution: 256
+        z_channels: 3
+        resolution: 128
         in_channels: 3
         out_ch: 3
         ch: 128
         ch_mult: !!python/tuple
           - 1
-          - 1
-          - 2
           - 2
           - 4
         num_res_blocks: 2
-        attn_resolutions:
-          - 16
+        attn_resolutions: [ ]
         dropout: 0.0
 
       lossconfig:
@@ -98,22 +95,22 @@ model:
 
       skip_sample: True
       sample_type: 'linear' # options {"linear", "sin"}
-      sample_step: 200
+      sample_step: 20
 
       num_timesteps: 1000 # timesteps
       eta: 1.0 # DDIM reverse process eta
       max_var: 1.0 # maximum variance
 
       UNetParams:
-        image_size: 16
-        in_channels: 8
+        image_size: 32
+        in_channels: 3
         model_channels: 128
-        out_channels: 8
+        out_channels: 3
         num_res_blocks: 2
         attention_resolutions: !!python/tuple
+          - 32
           - 16
           - 8
-          - 4
         channel_mult: !!python/tuple
           - 1
           - 4

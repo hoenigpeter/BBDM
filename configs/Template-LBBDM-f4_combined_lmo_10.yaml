@@ -13,14 +13,14 @@ testing:
   sample_num: 1
 
 data:
-  dataset_name: 'lmo_xyz_augmented_1'
+  dataset_name: 'lmo_combined_10'
   dataset_type: 'custom_aligned'
   dataset_config:
-    dataset_path: 'datasets/lmo_xyz_1'
+    dataset_path: 'datasets/lmo/lmo_xyz_10'
     image_size: 128
     channels: 3
     to_normal: True
-    flip: True
+    flip: False
   train:
     batch_size: 8
     shuffle: True
@@ -59,7 +59,7 @@ model:
       ddconfig:
         double_z: false
         z_channels: 3
-        resolution: 256
+        resolution: 128
         in_channels: 3
         out_ch: 3
         ch: 128
@@ -95,7 +95,7 @@ model:
 
       skip_sample: True
       sample_type: 'linear' # options {"linear", "sin"}
-      sample_step: 10
+      sample_step: 20
 
       num_timesteps: 1000 # timesteps
       eta: 1.0 # DDIM reverse process eta
