@@ -148,9 +148,9 @@ class ImagePathDataset_Augmented(Dataset):
             image = (image - 0.5) * 2.
             image.clamp_(-1., 1.)
 
-        numpy_img = self.torch_to_numpy(image)
-        augmented_img = self.seq_syn.augment_image(numpy_img)
-        image = self.numpy_to_torch(augmented_img)
+        # numpy_img = self.torch_to_numpy(image)
+        # augmented_img = self.seq_syn.augment_image(numpy_img)
+        # image = self.numpy_to_torch(augmented_img)
 
         image_name = Path(img_path).stem
         return image, image_name

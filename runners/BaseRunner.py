@@ -407,6 +407,8 @@ class BaseRunner(ABC):
                                 self.scheduler[i].step(loss)
                         losses.append(loss.detach().mean())
 
+                    self.sample(self.net, train_batch, ".", stage='train')
+
                     if self.use_ema and self.global_step % (self.update_ema_interval*accumulate_grad_batches) == 0:
                         self.step_ema()
 

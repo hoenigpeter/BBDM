@@ -12,6 +12,8 @@ from runners.utils import weights_init, get_optimizer, get_dataset, make_dir, ge
 from tqdm.autonotebook import tqdm
 from torchsummary import summary
 
+import cv2
+import numpy as np
 
 @Registers.runners.register_with_name('BBDMRunner')
 class BBDMRunner(DiffusionBaseRunner):
@@ -163,6 +165,10 @@ class BBDMRunner(DiffusionBaseRunner):
 
     def loss_fn(self, net, batch, epoch, step, opt_idx=0, stage='train', write=True):
         (x, x_name), (x_cond, x_cond_name) = batch
+      
+        x = x.to(self.config.training.device[0])
+        x_cond = x_cond.to(self.config.training.device[0])
+
         x = x.to(self.config.training.device[0])
         x_cond = x_cond.to(self.config.training.device[0])
 
@@ -201,6 +207,7 @@ class BBDMRunner(DiffusionBaseRunner):
         #
         # sample = samples[-1]
         sample = net.sample(x_cond, clip_denoised=self.config.testing.clip_denoised).to('cpu')
+
         image_grid = get_image_grid(sample, grid_size, to_normal=self.config.data.dataset_config.to_normal)
         im = Image.fromarray(image_grid)
         im.save(os.path.join(sample_path, 'skip_sample.png'))

@@ -742,6 +742,7 @@ class UNetModel(nn.Module):
             x = th.cat([x, context], dim=1)
 
         h = x.type(self.dtype)
+
         for module in self.input_blocks:
             h = module(h, emb, context)
             hs.append(h)

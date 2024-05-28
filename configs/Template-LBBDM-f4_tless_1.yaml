@@ -13,11 +13,11 @@ testing:
   sample_num: 1
 
 data:
-  dataset_name: 'tless_xyz_2'
+  dataset_name: 'tless_xyz_1'
   dataset_type: 'custom_aligned'
   dataset_config:
-    dataset_path: 'datasets/tless/2'
-    image_size: 128
+    dataset_path: 'datasets/tless/1'
+    image_size: 256
     channels: 3
     to_normal: True
     flip: False
@@ -53,13 +53,13 @@ model:
 
   VQGAN:
     params:
-      ckpt_path: 'results/VQGAN/CelebAMaskHQ-f4.ckpt'
+      ckpt_path: 'results/VQGAN/vg-f4.ckpt'
       embed_dim: 3
       n_embed: 8192
       ddconfig:
         double_z: false
         z_channels: 3
-        resolution: 128
+        resolution: 256
         in_channels: 3
         out_ch: 3
         ch: 128
@@ -102,7 +102,7 @@ model:
       max_var: 1.0 # maximum variance
 
       UNetParams:
-        image_size: 32
+        image_size: 64
         in_channels: 3
         model_channels: 128
         out_channels: 3

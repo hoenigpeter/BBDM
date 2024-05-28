@@ -16,8 +16,8 @@ data:
   dataset_name: 'lmo_xyz_1'
   dataset_type: 'custom_aligned'
   dataset_config:
-    dataset_path: 'datasets/lmo_xyz_1'
-    image_size: 128
+    dataset_path: 'datasets/lmo/lmo_xyz_1'
+    image_size: 256
     channels: 3
     to_normal: True
     flip: False
@@ -95,14 +95,14 @@ model:
 
       skip_sample: True
       sample_type: 'linear' # options {"linear", "sin"}
-      sample_step: 200
+      sample_step: 10
 
       num_timesteps: 1000 # timesteps
       eta: 1.0 # DDIM reverse process eta
       max_var: 1.0 # maximum variance
 
       UNetParams:
-        image_size: 32
+        image_size: 64
         in_channels: 3
         model_channels: 128
         out_channels: 3
